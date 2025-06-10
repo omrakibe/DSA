@@ -24,7 +24,7 @@ public class RBinarySearch
 {
     public static void main(String[] args)
     {
-        int[] arr = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int[] arr = new int[1000];
         int target = 8;
         Search3 ser = new Search3();
         int res = ser.Search(arr, target, 0, arr.length - 1);
