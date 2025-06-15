@@ -2,19 +2,17 @@ import java.util.Scanner;
 
 class BinarySearch2
 {
-    int Binary2(int[] arr, int target)
+    int Binary2(int[] arr, int target, int left, int right)
     {
-        int left = 0;
-        int right = arr.length - 1;
         while (left <= right)
         {
             int mid = (right + left) / 2;
             if (arr[mid] == target)
                 return mid;
             else if (arr[mid] < target)
-                left = mid + 1;
+                return Binary2(arr, target, mid + 1, right);
             else
-                right = mid - 1;
+                return Binary2(arr, target, left, mid - 1);
         }
         return -1;
     }
@@ -38,7 +36,7 @@ public class BinarySearchRevision
         int target = scan.nextInt();
 
         BinarySearch2 bs = new BinarySearch2();
-        int res = bs.Binary2(arr, target);
+        int res = bs.Binary2(arr, target, 0, arr.length - 1);
 
         if (res != -1)
             System.out.println("Index of " + target + " is: " + res);
